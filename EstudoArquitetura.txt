@@ -1,0 +1,62 @@
+Domain
+
+- É onde fica minha regra de negócio. Aqui o construo minhas entidades e crio os contratos como o repositório por exemplo
+
+Application
+
+- É onde fica a orquestração das minhas regras de negócio. Aqui eu coloco os casos de uso e registros os DTO's
+
+Infra
+
+- Aqui é onde eu construo as dependências externas, comos os frameworks e afins (Onde ficam as independências) ou seja, onde ficam as implementações
+
+Interfaces
+
+- Aqui é onde eu externalizo minha aplicação, é onde eu construo as minhas entradas; Exemplo: Http... Aqui ficam controllers rotas
+
+Main
+
+- Onde meu server é construído e as dependências injetadas -- Aqui fica o buildServer e o bootstrap da aplicação
+
+
+Esboço da arquitetura monolito
+
+src/
+  shared/
+    errors/
+      AppError.ts
+  modules/
+    users/
+      domain/
+        entities/User.ts
+        errors/EmailAlreadyInUseError.ts
+        repositories/UserRepository.ts
+      application/
+        use-cases/CreateUser.ts
+        use-cases/ListUsers.ts
+        dtos.ts
+      infra/
+        InMemoryUserRepository.ts
+      http/
+        usersRoutes.ts
+        controllers.ts
+    products/
+      domain/
+        entities/Product.ts
+        errors/SkuAlreadyInUseError.ts
+        repositories/ProductRepository.ts
+      application/
+        use-cases/CreateProduct.ts
+        use-cases/ListProducts.ts
+        use-cases/GetProduct.ts
+        dtos.ts
+      infra/
+        InMemoryProductRepository.ts
+      http/
+        productsRoutes.ts
+        controllers.ts
+  main/
+    buildServer.ts
+    index.ts
+
+

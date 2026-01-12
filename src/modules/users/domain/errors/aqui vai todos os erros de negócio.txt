@@ -1,0 +1,1 @@
+Essa camada fica responsável por armazenar os erros que vão ser chamados na app
