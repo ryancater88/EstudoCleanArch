@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const userSchema = z.object({
+export const userBaseSchema = z.object({
     id: z.uuid('O id não é um UUID válido'),
     nome: z.string('Nome precisa ser uma string').min(3, 'Nome precisa ter no mínimo 3 caracteres').max(80, 'Nome precisa ter no máximo 80 caracteres'),
     email: z.email('Email inválido').max(80, 'Email não dever exceder 80 caracteres'),

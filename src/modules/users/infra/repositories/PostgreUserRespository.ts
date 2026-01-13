@@ -1,12 +1,11 @@
 import { IUserRepository } from "@modules/users/domain/repositories/IUserRespository.js";
 import { prisma } from "../../../../shared/providers/prisma.js";
 import { User } from "@modules/users/domain/entities/User.js";
-import { PrismaClient } from "@prisma/client/extension";
 
 export class PostgreUserRespository implements IUserRepository {
-    private prisma: PrismaClient
-    
-    constructor () {
+    private prisma: typeof prisma
+
+    constructor() {
         this.prisma = prisma
     }
 
@@ -25,7 +24,7 @@ export class PostgreUserRespository implements IUserRepository {
             }
         })
 
-        if(userData) {
+        if (userData) {
             const userEntity = new User({
                 ...userData
             })
@@ -43,7 +42,7 @@ export class PostgreUserRespository implements IUserRepository {
             }
         })
 
-        if(userData) {
+        if (userData) {
             const userEntity = new User({
                 ...userData
             })
@@ -54,10 +53,28 @@ export class PostgreUserRespository implements IUserRepository {
         return null
     }
 
-    public async save(data: User): Promise<void> {
-        await this.prisma.user.create({
+    public async save(data: User): Promise<User> {
+        const saveResult = await this.prisma.user.create({
             data
         })
+
+        const userEntity = new User({ ...saveResult })
+        return userEntity
+    }
+
+    public async update(data: User): Promise<User> {
+        const updateResult = await this.prisma.user.update({
+            data: {
+                ...data,
+                id: undefined
+            },
+            where: {
+                id: data.id
+            }
+        })
+
+        const userEntity = new User({ ...updateResult })
+        return userEntity
     }
 
 }
