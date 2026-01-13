@@ -1,5 +1,5 @@
 import { IUserRepository } from "@modules/users/domain/repositories/IUserRespository.js";
-import { prisma } from "../../../../shared/providers/prisma.js";
+import { prisma } from "../../../../shared/infra/db/prisma.js";
 import { User } from "@modules/users/domain/entities/User.js";
 
 export class PostgreUserRespository implements IUserRepository {

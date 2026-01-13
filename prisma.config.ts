@@ -6,7 +6,8 @@ type Env = {
 }
 
 export default defineConfig({
-  schema: 'prisma/schema.prisma',
-  migrations: { path: 'prisma/migrations' },
+  schema: `src/shared/providers/prisma/schema.prisma`,
+  migrations: { path: `src/shared/providers/prisma/migrations` },
   datasource: { url: env<Env>('DATABASE_URL') },
+  
 })
