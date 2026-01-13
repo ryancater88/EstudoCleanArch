@@ -1,4 +1,4 @@
 import z from "zod";
 import { userSchema } from "../UserSchema.js";
 
-export const createUserBodySchema = userSchema.omit({id: true}) 
+export const deleteUserParamSchema = userSchema.pick({id: true})
