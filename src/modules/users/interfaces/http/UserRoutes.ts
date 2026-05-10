@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { createUserBodySchema } from "./schemas/CreateUserSchema.js";
 import { deleteUserParamSchema } from "./schemas/DeleteUserSchema.js";
-import { buildUsersModule } from "@modules/users/main/index.js";
+import { buildUsersModule } from "@modules/users/BuildUserModule.js";
 import { updateUserBodySchema, updateUserParamsSchema } from "./schemas/UpdateUserSchema.js";
 import { userResponseSchema } from "./schemas/UserResponseSchema.js";
 

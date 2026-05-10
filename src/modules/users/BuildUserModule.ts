@@ -1,16 +1,16 @@
 // src/modules/users/main/index.ts
 import { Uuid } from "@shared/domain/value-objects/Uuid.js";
 
-import { PostgreUserRespository as PostgreUserRepository } from "../infra/repositories/PostgreUserRespository.js";
+import { PostgreUserRespository as PostgreUserRepository } from "./infra/repositories/PostgreUserRespository.js";
 
-import { EnsureEmailNotInUse } from "../domain/services/EnsureEmailNotInUse.js";
+import { EnsureEmailNotInUse } from "./domain/services/EnsureEmailNotInUse.js";
 
-import { CreateUserUseCase } from "../application/useCases/CreateUserUseCase.js";
-import { UpdateUserUseCase } from "../application/useCases/UpdateUserUseCase.js";
-import { DeleteUserUseCase } from "../application/useCases/DeleteUserUseCase.js";
-import { CreateUserContoller } from "../interfaces/http/controllers/CreateUserController.js";
-import { UpdateUserController } from "../interfaces/http/controllers/UpdateUserController.js";
-import { DeleteUserController } from "../interfaces/http/controllers/DeleteUserController.js";
+import { CreateUserUseCase } from "./application/useCases/CreateUserUseCase.js";
+import { UpdateUserUseCase } from "./application/useCases/UpdateUserUseCase.js";
+import { DeleteUserUseCase } from "./application/useCases/DeleteUserUseCase.js";
+import { CreateUserContoller } from "./interfaces/http/controllers/CreateUserController.js";
+import { UpdateUserController } from "./interfaces/http/controllers/UpdateUserController.js";
+import { DeleteUserController } from "./interfaces/http/controllers/DeleteUserController.js";
 
 
 

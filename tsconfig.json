@@ -10,14 +10,13 @@
     ],
     "module": "nodenext",
     "target": "es2022",
-    "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
       "@shared/*": [
-        "src/shared/*"
+        "./src/shared/*"
       ],
       "@modules/*": [
-        "src/modules/*"
+        "./src/modules/*"
       ]
     },
     "strict": true,
